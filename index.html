@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Minesweeper</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<section class="grid-holder">
+				<div class="grid"></div>
+			</section>
+
+			<section class="sidebar">
+				<div class="remaining">
+					<p>Remaining Flags:</p>
+					<span id="remainingFlags">20 🚩</span>
+				</div>
+				<div class="stopwatch"></div>
+			</section>
+		</div>
+		<footer class="footer">
+			<div class="btn-holder">
+				<button id="newGame" class="new-game">New Game</button>
+			</div>
+			<div class="legend">
+				<p>
+					L-Click => Reveal what is under tile.
+				</p>
+				<p>
+					R-Click => Flag(🚩) the tile as a bomb.
+				</p>
+			</div>
+			<div class="created-by">
+				Created with the help of
+				<a
+					href="https://www.youtube.com/c/AniaKub%C3%B3w"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Ania Kubów</a
+				>
+			</div>
+		</footer>
+		<script src="app.js"></script>
+	</body>
+</html>
