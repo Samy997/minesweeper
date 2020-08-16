@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			remainingFlagsEl.innerHTML = '20 🚩';
 
 			createBoard();
-		} else {
+		} else if (squares.length === 0) {
 			createBoard();
 		}
 	});
@@ -190,48 +190,62 @@ document.addEventListener('DOMContentLoaded', () => {
 		const isRightEdge = currentId % width === width - 1;
 
 		setTimeout(() => {
+			// Top left corner
 			if (currentId > 0 && !isLeftEdge) {
 				const newId = squares[parseInt(currentId, 10) - 1].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+			// Top Right corner
 			if (currentId > 9 && !isRightEdge) {
 				const newId = squares[parseInt(currentId, 10) + 1 - width].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+
+			// Top square
 			if (currentId > 10) {
 				const newId = squares[parseInt(currentId, 10) - width].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+
+			// Left Side
 			if (currentId > 11 && !isLeftEdge) {
 				const newId = squares[parseInt(currentId, 10) - 1 - width].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+
+			// Right side
 			if (currentId < 98 && !isRightEdge) {
 				const newId = squares[parseInt(currentId, 10) + 1].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+
+			// Bottom left corner
 			if (currentId < 90 && !isLeftEdge) {
 				const newId = squares[parseInt(currentId, 10) - 1 + width].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
-			if (currentId < 88 && !isLeftEdge) {
+
+			// Bottom Right corner
+			if (currentId < 88 && !isRightEdge) {
 				const newId = squares[parseInt(currentId, 10) + 1 + width].id;
 				const newSquare = document.getElementById(newId);
 
 				click(newSquare);
 			}
+
+			// Bottom square
 			if (currentId < 89) {
 				const newId = squares[parseInt(currentId, 10) + width].id;
 				const newSquare = document.getElementById(newId);
@@ -242,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Game over
-	function gameOver(square) {
+	function gameOver() {
 		const sidebarEl = document.querySelector('.sidebar');
 		const gameOverDiv = document.createElement('div');
 		gameOverDiv.classList.add('game-over');
